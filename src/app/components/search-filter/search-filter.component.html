@@ -1,0 +1,24 @@
+<div class="filter-container" [formGroup]="filterForm">
+  <mat-form-field appearance="outline" class="filter-field">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name" placeholder="Cerca per nome...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filter-field" *ngIf="!selectedSeries">
+    <mat-label>Serie</mat-label>
+    <mat-select formControlName="series">
+      <mat-option value="">Tutte le Serie</mat-option>
+      <mat-option *ngFor="let series of seriesList" [value]="series">{{ series }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filter-field">
+    <mat-label>Affiliazione</mat-label>
+    <mat-select formControlName="affiliation">
+      <mat-option value="">Tutte</mat-option>
+      <mat-option *ngFor="let affiliation of affiliations" [value]="affiliation">{{ affiliation }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="warn" (click)="resetFilters()">Reset</button>
+</div>

@@ -1,0 +1,33 @@
+<mat-card class="character-card" [routerLink]="['/characters', character.id]">
+  <div class="card-image-container">
+    <mat-chip class="series-badge" [class]="'series-chip-' + character.series.toLowerCase().replace(' ', '-')">{{ character.series }}</mat-chip>
+    <img mat-card-image [src]="character.image" [alt]="character.name" class="character-image">
+  </div>
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title>
+    <mat-card-subtitle>{{ character.race || character.crew || character.clan || 'Anime Character' }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="character-stats">
+      <div class="stat-item" *ngIf="character.ki">
+        <span class="stat-label">Ki:</span>
+        <span class="stat-value">{{ character.ki }}</span>
+      </div>
+      <div class="stat-item" *ngIf="character.bounty">
+        <span class="stat-label">Taglia:</span>
+        <span class="stat-value">{{ character.bounty }}</span>
+      </div>
+      <div class="stat-item" *ngIf="character.rank">
+        <span class="stat-label">Rango:</span>
+        <span class="stat-value">{{ character.rank }}</span>
+      </div>
+      <div class="stat-item" *ngIf="character.gender">
+        <span class="stat-label">Genere:</span>
+        <span class="stat-value">{{ character.gender }}</span>
+      </div>
+      <div class="stat-item" *ngIf="character.affiliation">
+        <mat-chip class="affiliation-chip">{{ character.affiliation }}</mat-chip>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

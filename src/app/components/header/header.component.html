@@ -1,0 +1,34 @@
+<mat-toolbar color="primary" class="header">
+  <div class="header-container">
+    <a routerLink="/" class="logo-link" (click)="closeMenu()">
+      <mat-icon class="logo-icon">sports_martial_arts</mat-icon>
+      <h1>{{ title }}</h1>
+    </a>
+    
+    <span class="spacer"></span>
+    
+    <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
+      <mat-icon>{{ menuOpen ? 'close' : 'menu' }}</mat-icon>
+    </button>
+    
+    <nav class="nav-links" [class.mobile-open]="menuOpen">
+      <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a mat-button routerLink="/dragon-ball" routerLinkActive="active" (click)="closeMenu()">
+        <mat-icon>sports_martial_arts</mat-icon>
+        <span>Dragon Ball</span>
+      </a>
+      <a mat-button routerLink="/one-piece" routerLinkActive="active" (click)="closeMenu()">
+        <mat-icon>sailing</mat-icon>
+        <span>One Piece</span>
+      </a>
+      <a mat-button routerLink="/naruto" routerLinkActive="active" (click)="closeMenu()">
+        <mat-icon>auto_awesome</mat-icon>
+        <span>Naruto</span>
+      </a>
+    </nav>
+  </div>
+</mat-toolbar>
+<div class="menu-overlay" [class.active]="menuOpen" (click)="closeMenu()"></div>

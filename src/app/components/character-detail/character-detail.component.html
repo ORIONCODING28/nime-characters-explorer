@@ -1,0 +1,77 @@
+<div class="character-detail-container" *ngIf="!loading && character; else loadingTemplate">
+  <button mat-raised-button color="primary" [routerLink]="backRoute" class="back-button">
+    <mat-icon>arrow_back</mat-icon>
+    Torna alla Lista
+  </button>
+
+  <div class="detail-content">
+    <div class="character-header">
+      <div class="character-image">
+        <mat-chip class="series-badge" [class]="'series-chip-' + character.series.toLowerCase().replace(' ', '-')">{{ character.series }}</mat-chip>
+        <img [src]="character.image" [alt]="character.name">
+      </div>
+      
+      <div class="character-info">
+        <h1>{{ character.name }}</h1>
+        <div class="info-grid">
+          <div class="info-item" *ngIf="character.race">
+            <span class="label">Razza:</span>
+            <mat-chip>{{ character.race }}</mat-chip>
+          </div>
+          <div class="info-item" *ngIf="character.gender">
+            <span class="label">Genere:</span>
+            <span>{{ character.gender }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.ki">
+            <span class="label">Ki:</span>
+            <span>{{ character.ki }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.maxKi">
+            <span class="label">Max Ki:</span>
+            <span>{{ character.maxKi }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.crew">
+            <span class="label">Ciurma:</span>
+            <span>{{ character.crew }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.bounty">
+            <span class="label">Taglia:</span>
+            <span>{{ character.bounty }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.clan">
+            <span class="label">Clan:</span>
+            <span>{{ character.clan }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.rank">
+            <span class="label">Rango:</span>
+            <span>{{ character.rank }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.village">
+            <span class="label">Villaggio:</span>
+            <span>{{ character.village }}</span>
+          </div>
+          <div class="info-item" *ngIf="character.affiliation">
+            <span class="label">Affiliazione:</span>
+            <span>{{ character.affiliation }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <mat-card class="description-card">
+      <mat-card-header>
+        <mat-card-title>Descrizione</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ character.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Caricamento dettagli personaggio...</p>
+  </div>
+</ng-template>

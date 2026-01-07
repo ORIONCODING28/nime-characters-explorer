@@ -1,0 +1,74 @@
+<div class="character-list-container">
+  <h2>{{ selectedSeries ? 'Personaggi ' + selectedSeries : 'Personaggi Anime' }}</h2>
+  
+  <p class="description">
+    {{ selectedSeries ? 'Tutti i personaggi di ' + selectedSeries : 'Tutti i personaggi di Dragon Ball, One Piece e Naruto mixati insieme' }}.
+    Clicca su una riga per vedere i dettagli completi del personaggio.
+  </p>
+
+  <app-search-filter 
+    [selectedSeries]="selectedSeries"
+    [characters]="allCharacters"
+    (filterChange)="onFilterChange($event)">
+  </app-search-filter>
+
+  <div class="list-view" *ngIf="!loading; else loadingSpinner">
+    <div class="list-table">
+      <div class="table-header">
+        <div class="header-cell image-cell">#</div>
+        <div class="header-cell name-cell">Nome</div>
+        <div class="header-cell series-cell">Serie</div>
+        <div class="header-cell type-cell">Tipo/Razza</div>
+        <div class="header-cell stats-cell">Statistiche</div>
+      </div>
+      
+      <div class="table-body">
+        <div class="table-row" *ngFor="let character of getPagedCharacters(); let i = index" 
+             [routerLink]="['/characters', character.id]">
+          <div class="body-cell image-cell">
+            <img [src]="character.image" [alt]="character.name" class="character-thumb">
+          </div>
+          <div class="body-cell name-cell">
+            <span class="character-name">{{ character.name }}</span>
+          </div>
+          <div class="body-cell series-cell">
+            <mat-chip class="series-badge" [class]="'series-chip-' + character.series.toLowerCase().replace(' ', '-')">
+              {{ character.series }}
+            </mat-chip>
+          </div>
+          <div class="body-cell type-cell">
+            <span>{{ character.race || character.crew || character.clan || '—' }}</span>
+          </div>
+          <div class="body-cell stats-cell">
+            <span *ngIf="character.ki" class="stat-item">
+              <mat-icon>bolt</mat-icon> {{ character.ki }}
+            </span>
+            <span *ngIf="character.bounty" class="stat-item">
+              <mat-icon>attach_money</mat-icon> {{ character.bounty }}
+            </span>
+            <span *ngIf="character.village" class="stat-item">
+              <mat-icon>location_city</mat-icon> {{ character.village }}
+            </span>
+            <span *ngIf="!character.ki && !character.bounty && !character.village">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <mat-paginator 
+      [length]="dataSource.filteredData.length"
+      [pageSizeOptions]="[10, 20, 50, 100]"
+      [pageSize]="10"
+      (page)="onPageChange($event)"
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+
+  <ng-template #loadingSpinner>
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Loading characters...</p>
+    </div>
+  </ng-template>
+</div>
+

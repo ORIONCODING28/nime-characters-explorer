@@ -1,0 +1,29 @@
+<footer class="footer">
+  <mat-toolbar color="primary" class="footer-toolbar">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Anime Personaggi</h3>
+        <p>Database completo dei personaggi di<br>Dragon Ball, One Piece e Naruto</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Link Rapidi</h4>
+        <nav class="footer-links">
+          <a routerLink="/" mat-button>Home</a>
+          <a routerLink="/dragon-ball" mat-button>Dragon Ball</a>
+          <a routerLink="/one-piece" mat-button>One Piece</a>
+          <a routerLink="/naruto" mat-button>Naruto</a>
+        </nav>
+      </div>
+      
+      <div class="footer-section">
+        <p class="copyright">
+          © {{ currentYear }} Anime Personaggi. Tutti i diritti riservati.
+        </p>
+        <p class="api-credit">
+          Dati forniti da Dragon Ball API, One Piece API e Naruto API
+        </p>
+      </div>
+    </div>
+  </mat-toolbar>
+</footer>

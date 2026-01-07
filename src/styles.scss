@@ -1,0 +1,395 @@
+/* ========================================
+   ANIME APP - CUSTOM THEME
+   ======================================== */
+
+/* Design System Variables */
+:root {
+  /* Background Colors */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #2c3e50;
+  --bg-card: #34495e;
+  
+  /* Accent Colors */
+  --accent-primary: #ff6b35;
+  --accent-blue: #3498db;
+  --accent-orange: #f39c12;
+  
+  /* Text Colors */
+  --text-primary: #ecf0f1;
+  --text-secondary: #bdc3c7;
+  --text-dark: #2c3e50;
+  
+  /* Border & Shadow */
+  --border-light: #e0e0e0;
+  --border-dark: #1a252f;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Global Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: #f8f9fa;
+  color: #2c3e50;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f8f9fa;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Table Styles */
+.character-table {
+  width: 100%;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-dark);
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.character-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--bg-card);
+  padding: 4px;
+  border: 2px solid var(--border-dark);
+}
+
+/* Series Chips - Semplificati */
+.series-chip-dragon-ball {
+  background: #ff6b35 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.series-chip-one-piece {
+  background: #3498db !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.series-chip-naruto {
+  background: #f39c12 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+/* Material Table Overrides */
+.mat-mdc-table {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  
+  th {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid var(--accent-primary) !important;
+  }
+  
+  td {
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid var(--border-dark) !important;
+  }
+}
+
+/* Card Styles */
+.mat-mdc-card {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-dark) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.mat-mdc-card-title {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+}
+
+.mat-mdc-card-subtitle {
+  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+}
+
+.mat-mdc-card-content {
+  color: var(--text-secondary) !important;
+}
+
+/* Button Styles */
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-fab,
+.mat-mdc-mini-fab {
+  &.mat-primary {
+    background: var(--accent-primary) !important;
+    color: white !important;
+  }
+  
+  color: var(--text-primary) !important;
+}
+
+/* Form Field Styles */
+.mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    background: var(--bg-card) !important;
+  }
+  
+  .mat-mdc-form-field-flex {
+    background: var(--bg-card) !important;
+  }
+  
+  input,
+  textarea,
+  select {
+    color: var(--text-primary) !important;
+    caret-color: var(--accent-primary) !important;
+  }
+  
+  label {
+    color: var(--text-secondary) !important;
+  }
+  
+  .mat-mdc-floating-label {
+    color: var(--text-secondary) !important;
+  }
+  
+  .mat-mdc-form-field-hint,
+  .mat-mdc-form-field-error {
+    color: var(--text-secondary) !important;
+  }
+}
+
+/* Search Filter - Override con background bianco */
+.filter-container .mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    background: white !important;
+  }
+  
+  .mat-mdc-form-field-flex {
+    background: white !important;
+  }
+  
+  .mdc-text-field {
+    background: white !important;
+    background-color: white !important;
+  }
+  
+  .mdc-text-field--filled {
+    background-color: white !important;
+  }
+  
+  input,
+  textarea,
+  select {
+    color: #2c3e50 !important;
+  }
+  
+  label {
+    color: #7f8c8d !important;
+  }
+  
+  .mat-mdc-floating-label {
+    color: #7f8c8d !important;
+  }
+  
+  .mat-mdc-select-value {
+    color: #2c3e50 !important;
+  }
+  
+  .mat-mdc-select-arrow {
+    color: #7f8c8d !important;
+  }
+  
+  .mat-mdc-select-trigger {
+    color: #2c3e50 !important;
+  }
+  
+  .mdc-text-field__input {
+    color: #2c3e50 !important;
+  }
+  
+  .mat-mdc-form-field-infix {
+    background: transparent !important;
+  }
+}
+
+/* Chip Styles */
+.mat-mdc-chip {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-dark) !important;
+  font-weight: 600 !important;
+  
+  .mat-mdc-chip-action-label {
+    color: var(--text-primary) !important;
+  }
+}
+
+/* Toolbar Styles */
+.mat-toolbar {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow) !important;
+  border-bottom: 2px solid var(--accent-primary);
+}
+
+/* Paginator Styles */
+.mat-mdc-paginator {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  
+  .mat-mdc-paginator-page-size-label,
+  .mat-mdc-paginator-range-label {
+    color: var(--text-primary) !important;
+  }
+  
+  .mat-mdc-icon-button {
+    color: var(--text-primary) !important;
+  }
+  
+  .mat-mdc-select-value {
+    color: var(--text-primary) !important;
+  }
+}
+
+/* Select Dropdown */
+.mat-mdc-select-panel {
+  background: var(--bg-secondary) !important;
+  
+  .mat-mdc-option {
+    color: var(--text-primary) !important;
+    
+    &.mat-mdc-option-active {
+      background: var(--bg-card) !important;
+    }
+  }
+}
+
+/* Loading & Spinner */
+.mat-mdc-progress-spinner circle,
+.mat-mdc-spinner circle {
+  stroke: var(--accent-primary) !important;
+}
+
+/* FORCE WHITE BACKGROUND ON SEARCH BAR FORMS */
+.filter-container .mat-mdc-text-field-wrapper,
+.filter-container .mdc-text-field,
+.filter-container .mdc-text-field--filled,
+.filter-container .mat-mdc-form-field-flex {
+  background-color: white !important;
+}
+
+.filter-container input,
+.filter-container .mdc-text-field__input {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.filter-container .mat-mdc-select-value,
+.filter-container .mat-mdc-select-value-text {
+  color: #000 !important;
+}
+
+.filter-container .mat-mdc-floating-label,
+.filter-container label {
+  color: #666 !important;
+}
+
+/* PAGINATOR TEXT WHITE */
+.mat-mdc-select-value-text,
+.mat-mdc-paginator-range-label,
+.mat-mdc-paginator-page-size-label,
+.mat-select-value-text,
+.mat-paginator-range-label,
+.mat-paginator-page-size-label,
+mat-paginator .mat-mdc-paginator-range-label,
+mat-paginator .mat-mdc-paginator-page-size-label,
+mat-paginator .mat-mdc-select-value-text {
+  color: white !important;
+}
+
+/* ========================================
+   RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Mobile First - Base styles already mobile-friendly */
+
+/* Tablet - 768px and up */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Desktop - 1024px and up */
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  h3 {
+    font-size: 1.1rem !important;
+  }
+}
